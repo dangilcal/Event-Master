@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class BookService : IBookService
 {
-    private readonly LibraryContext _context;
+    private readonly EventMasterContext _context;
     private readonly IMapper _mapper;
 
-    public BookService(LibraryContext context, IMapper mapper)
+    public BookService(EventMasterContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

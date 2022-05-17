@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using WebApi.Helpers;
 
 public class Startup
 {
@@ -13,8 +14,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddTransient<LibraryContext>(_ =>
-            new LibraryContext(Configuration.GetConnectionString("DefaultConnection")));
+        services.AddTransient<EventMasterContext>(_ =>
+            new EventMasterContext(Configuration.GetConnectionString("DefaultConnection")));
 
         services.AddSwaggerGen(options =>
         {
@@ -26,20 +27,20 @@ public class Startup
         var mapperConfig = new MapperConfiguration(mc =>
         {
             mc.AddProfile(new BookProfile());
-            mc.AddProfile(new FaltasProfile());
-            mc.AddProfile(new BookVersionProfile());
+            mc.AddProfile(new UserProfile());
         });
 
         IMapper mapper = mapperConfig.CreateMapper();
         services.AddSingleton(mapper);
 
         services.AddTransient<IBookService, BookService>();
-        services.AddTransient<IFaltasService, FaltasService>();
-        services.AddTransient<IBookVersionService, BookVersionService>();
+        services.AddTransient<IUserService, UserService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+        app.UseMiddleware<JwtMiddleware>();
+
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
