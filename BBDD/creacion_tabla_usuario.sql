@@ -1,0 +1,13 @@
+USE EventMaster;
+
+CREATE TABLE Usuario
+(
+    Id INTEGER IDENTITY(1,1),
+    Nombre VARCHAR(50) NOT NULL,
+    Apellidos VARCHAR(100) NOT NULL,
+    Apodo VARCHAR(60) UNIQUE NOT NULL,
+    DNI VARCHAR(100) NOT NULL,
+    Email VARCHAR(150) UNIQUE NOT NULL,
+    PasswordHast VARCHAR(max) NOT NULL,
+    CONSTRAINT Pk_Usuario PRIMARY KEY (Id)
+);
