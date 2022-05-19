@@ -29,9 +29,11 @@ public class IdentidadController : ControllerBase
     public IActionResult Login(BaseUserLoginDTO login)
     {
         var hash = "";
+        int userId = 0;
         try
         {
             hash = (_identidad.GetByApodo(login.Apodo)).PasswordHast;
+            userId = (_identidad.GetByApodo(login.Apodo)).Id;
         }
         catch
         {
@@ -51,7 +53,7 @@ public class IdentidadController : ControllerBase
             }
 
             //Genera el token
-            var token = GenerarToken(login);
+            var token = GenerarToken(login, userId);
 
             return Ok(new
             {
@@ -65,7 +67,7 @@ public class IdentidadController : ControllerBase
         }
     }
 
-    private JwtSecurityToken GenerarToken(BaseUserLoginDTO login)
+    private JwtSecurityToken GenerarToken(BaseUserLoginDTO login, int userId)
     {
         string ValidIssuer = _configuration["ApiAuth:Issuer"];
         string ValidAudience = _configuration["ApiAuth:Audience"];
@@ -81,7 +83,8 @@ public class IdentidadController : ControllerBase
         //Agregamos los claim nuestros
         var claims = new[]
         {
-                new Claim("user", login.Apodo)
+                new Claim("user", login.Apodo),
+                new Claim("userId", userId + "")
             };
 
         return new JwtSecurityToken

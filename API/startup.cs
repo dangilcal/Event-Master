@@ -28,6 +28,8 @@ public class Startup
         {
             mc.AddProfile(new BookProfile());
             mc.AddProfile(new UserProfile());
+            mc.AddProfile(new ParticipaProfile());
+            mc.AddProfile(new EventoProfile());
         });
 
         IMapper mapper = mapperConfig.CreateMapper();
@@ -35,6 +37,8 @@ public class Startup
 
         services.AddTransient<IBookService, BookService>();
         services.AddTransient<IUserService, UserService>();
+        services.AddTransient<IParticipaService, ParticipaService>();
+        services.AddTransient<IEventoService, EventoService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

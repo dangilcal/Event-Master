@@ -11,6 +11,6 @@ CREATE TABLE Evento
     FechaInicio DATE NOT NULL,
     FechaFin DATE NOT NULL,
     Descripcion VARCHAR(max) NOT NULL,
-    Imagen VARCHAR(200) UNIQUE NOT NULL,
+    Imagen VARCHAR(200) NOT NULL,
     CONSTRAINT Pk_Evento PRIMARY KEY(Id)
 );
