@@ -27,5 +27,13 @@ public class EventoService : IEventoService
     }
 
 
+    public IEnumerable<EventoDTO> GetEventosFinalizados()
+    {
+        DateTime d;
+        DateTime now = DateTime.Now;
+        d = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+        return _mapper.Map<IEnumerable<EventoDTO>>(_context.Eventos.Where(x => x.FechaFin < d));
+    }
+
 
 }

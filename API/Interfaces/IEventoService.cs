@@ -8,6 +8,7 @@ public interface IEventoService
 {
 
     public EventoDTO GetByID(int guid);
+    public IEnumerable<EventoDTO> GetEventosFinalizados();
 
     public EventoDTO Add(BaseEventoDTO guid);
 

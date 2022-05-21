@@ -31,9 +31,15 @@ public class ParticipasController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParticipaDTO))]
     public ActionResult<ParticipaDTO> Post([FromBody] BaseParticipaDTO baseParticipa)
     {
-        baseParticipa.IdUsuario = JwtID.getIdUser();
+        JwtID jwtID = JwtID.Instancia();
+
+        baseParticipa.IdUsuario = jwtID.getIdUser();
+
 
         return Ok(_ParticipaService.Add(baseParticipa));
     }
+
+
+
 
 }

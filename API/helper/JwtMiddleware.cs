@@ -52,7 +52,12 @@ namespace WebApi.Helpers
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 string userName = jwtToken.Claims.First(x => x.Type == "user").Value;
-                JwtID.serIdUser(int.Parse(jwtToken.Claims.First(x => x.Type == "userId").Value));
+
+                //Guardo la ID del tokent
+                JwtID jwtID = JwtID.Instancia();
+                jwtID.setIdUser(int.Parse(jwtToken.Claims.First(x => x.Type == "userId").Value));
+
+
                 var user = _identidadService.GetByApodo(userName);
 
                 context.Items["X-User"] = JsonConvert.SerializeObject(user);

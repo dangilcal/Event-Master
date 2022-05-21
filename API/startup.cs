@@ -39,6 +39,7 @@ public class Startup
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IParticipaService, ParticipaService>();
         services.AddTransient<IEventoService, EventoService>();
+        services.AddTransient<IParticipaEventosService, ParticipaEventosService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -55,6 +55,16 @@ public class EventosController : ControllerBase
         return Ok(_EventoService.Add(baseEvento));
     }
 
-
+    /// <summary>
+    /// Muestra todos los eventos finalizados
+    /// </summary>
+    /// <returns>Returns a list of <see cref="EventoDTO"/></returns>
+    [HttpGet]
+    [Route("finalizados")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
+    public ActionResult<EventoDTO> Get()
+    {
+        return Ok(_EventoService.GetEventosFinalizados());
+    }
 
 }

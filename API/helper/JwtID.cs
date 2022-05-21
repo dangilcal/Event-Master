@@ -1,11 +1,24 @@
 public class JwtID
 {
-    private static int id;
-    public static int getIdUser()
+    private readonly static JwtID _instancia = new JwtID();
+
+
+    private JwtID()
+    {
+    }
+
+    public static JwtID Instancia()
+    {
+        return _instancia;
+    }
+
+
+    private int id;
+    public int getIdUser()
     {
         return id;
     }
-    public static void serIdUser(int idUser)
+    public void setIdUser(int idUser)
     {
         id = idUser;
     }
