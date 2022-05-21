@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineChartComponent } from './line-chart.component';
+import { RoutingComponent } from './routing.component';
 
-describe('LineChartComponent', () => {
-  let component: LineChartComponent;
-  let fixture: ComponentFixture<LineChartComponent>;
+describe('RoutingComponent', () => {
+  let component: RoutingComponent;
+  let fixture: ComponentFixture<RoutingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LineChartComponent ]
+      declarations: [ RoutingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LineChartComponent);
+    fixture = TestBed.createComponent(RoutingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
