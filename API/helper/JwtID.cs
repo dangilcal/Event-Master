@@ -2,7 +2,6 @@ public class JwtID
 {
     private readonly static JwtID _instancia = new JwtID();
 
-
     private JwtID()
     {
     }

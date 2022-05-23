@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tokenHelp } from 'src/app/helper/tokenHelp';
 import { IResponse } from 'src/app/models/Iresponse';
 import { Login } from 'src/app/models/login.model';
 import { LoginService } from 'src/app/services/login.service';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _login: LoginService,
-    private router: Router
+    private router: Router,
+    private cookie: tokenHelp
   ) {
     this.login = null;
   }
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
       (res) => {
         if (res.body != null) {
           const token = res.body.response;
-          this._login.setCookie(token);
+          this.cookie.setCookie(token);
         }
         // this.router.navigateByUrl('/dsads');
       },
