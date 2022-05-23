@@ -17,6 +17,7 @@ public class EventoService : IEventoService
         var _mappedEvento = _mapper.Map<EventoEntity>(baseEvento);
         var entityAdded = _context.Eventos.Add(_mappedEvento);
         _context.SaveChanges();
+
         return _mapper.Map<EventoDTO>(entityAdded);
     }
 
@@ -33,6 +34,11 @@ public class EventoService : IEventoService
         DateTime now = DateTime.Now;
         d = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
         return _mapper.Map<IEnumerable<EventoDTO>>(_context.Eventos.Where(x => x.FechaFin < d));
+    }
+
+    public int GetUltimaId()
+    {
+        return _context.Eventos.OrderByDescending(x => x.Id).Take(1).FirstOrDefault().Id;
     }
 
 

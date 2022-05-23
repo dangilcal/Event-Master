@@ -12,5 +12,7 @@ public interface IEventoService
 
     public EventoDTO Add(BaseEventoDTO guid);
 
+    public int GetUltimaId();
+
 
 }

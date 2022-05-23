@@ -10,15 +10,19 @@ public class EventosController : ControllerBase
     private readonly ILogger<EventosController> _logger;
     private readonly IEventoService _EventoService;
 
+    private readonly IParticipaService _ParticipaService;
+
     /// <summary>
     /// It creates a EventoController
     /// </summary>
     /// <param name="logger">used for logging</param>
     /// <param name="EventoService">used for dealing with the Evento data</param>
-    public EventosController(ILogger<EventosController> logger, IEventoService EventoService)
+    /// <param name="ParticipaService">used for dealing with the Evento data</param>
+    public EventosController(ILogger<EventosController> logger, IEventoService EventoService, IParticipaService ParticipaService)
     {
         _logger = logger;
         _EventoService = EventoService;
+        _ParticipaService = ParticipaService;
     }
 
 
@@ -52,13 +56,31 @@ public class EventosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     public ActionResult<EventoDTO> Post([FromBody] BaseEventoDTO baseEvento)
     {
-        return Ok(_EventoService.Add(baseEvento));
+        var idUser = JwtID.Instancia().getIdUser();
+
+        var evento = _EventoService.Add(baseEvento);
+
+        var eventoId = _EventoService.GetUltimaId();
+
+        BaseParticipaDTO participa = new BaseParticipaDTO();
+
+        participa.IdEvento = eventoId;
+        participa.IdUsuario = idUser;
+        participa.CreaOParticipa = true;
+        _ParticipaService.Add(participa);
+
+        return Ok(evento);
+
+
     }
+
+
 
     /// <summary>
     /// Muestra todos los eventos finalizados
     /// </summary>
     /// <returns>Returns a list of <see cref="EventoDTO"/></returns>
+    [Authorize]
     [HttpGet]
     [Route("finalizados")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]

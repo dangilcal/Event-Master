@@ -76,6 +76,5 @@ public class ParticipaEventosService : IParticipaEventosService
                 });
     }
 
-    
+
 }
-// && Participa.IdEvento  (from e in _context.Participas where e.IdUsuario == guid select new ParticipaDTO { IdUsuario = e.IdUsuario })
