@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           const token = res.body.response;
           this.cookie.setCookie(token);
         }
-        // this.router.navigateByUrl('/dsads');
+        this.router.navigateByUrl('');
       },
       (error) => {
         console.log(error);

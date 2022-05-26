@@ -26,9 +26,23 @@ export class tokenHelp {
 
   //Decodificar token
 
-  public getDecodedAccessToken(token: string): any {
+  public getDecodedAccessToken(): any {
     try {
-      return jwt_decode(token);
+      return jwt_decode(this.getCookie());
+    } catch (Error) {
+      return null;
+    }
+  }
+  public getId(): any {
+    try {
+      return this.getDecodedAccessToken()['userId'];
+    } catch (Error) {
+      return null;
+    }
+  }
+  public getUserName(): any {
+    try {
+      return this.getDecodedAccessToken()['user'];
     } catch (Error) {
       return null;
     }

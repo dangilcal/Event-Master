@@ -32,6 +32,9 @@ public class UsersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<UserDTO> Get(String apodo)
     {
+
+        loginHelper.isUserName(HttpContext, apodo);
+
         UserDTO result = _UserService.GetByApodo(apodo);
 
         if (result == null)

@@ -11,6 +11,7 @@ public class ParticipaEventosController : ControllerBase
     private readonly IParticipaEventosService _ParticipaEventosService;
 
 
+
     /// <summary>
     /// It creates a provisionController
     /// </summary>
@@ -36,7 +37,7 @@ public class ParticipaEventosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     public ActionResult<EventoDTO> GetParticipaEventosProductoActual()
     {
-        return Ok(_ParticipaEventosService.GetEventosCreadosOParticipados(JwtID.Instancia().getIdUser()));
+        return Ok(_ParticipaEventosService.GetEventosCreadosOParticipados(int.Parse(HttpContext.Request.Headers["X-Login"])));
     }
 
 
@@ -54,7 +55,9 @@ public class ParticipaEventosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     public ActionResult<EventoDTO> GetEventosNoParticipados()
     {
-        return Ok(_ParticipaEventosService.GetEventosNoParticipados(JwtID.Instancia().getIdUser()));
+
+
+        return Ok(_ParticipaEventosService.GetEventosNoParticipados(int.Parse(HttpContext.Request.Headers["X-Login"])));
     }
 
 }

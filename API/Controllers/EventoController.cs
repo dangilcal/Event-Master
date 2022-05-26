@@ -12,6 +12,7 @@ public class EventosController : ControllerBase
 
     private readonly IParticipaService _ParticipaService;
 
+
     /// <summary>
     /// It creates a EventoController
     /// </summary>
@@ -35,9 +36,11 @@ public class EventosController : ControllerBase
     [HttpGet("{Id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<EventoDTO> Get(int Id)
+    public ActionResult<EventoDTO> Get(int id)
     {
-        EventoDTO result = _EventoService.GetByID(Id);
+
+        loginHelper.isUserId(HttpContext, id);
+        EventoDTO result = _EventoService.GetByID(id);
 
         if (result == null)
             return NotFound();
@@ -56,7 +59,7 @@ public class EventosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     public ActionResult<EventoDTO> Post([FromBody] BaseEventoDTO baseEvento)
     {
-        var idUser = JwtID.Instancia().getIdUser();
+        var idUser = int.Parse(HttpContext.Request.Headers["X-Login"]);
 
         var evento = _EventoService.Add(baseEvento);
 

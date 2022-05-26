@@ -31,10 +31,8 @@ public class ParticipasController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParticipaDTO))]
     public ActionResult<ParticipaDTO> Post([FromBody] BaseParticipaDTO baseParticipa)
     {
-        JwtID jwtID = JwtID.Instancia();
 
-        baseParticipa.IdUsuario = jwtID.getIdUser();
-
+        baseParticipa.IdUsuario = int.Parse(HttpContext.Request.Headers["X-Login"]);
 
         return Ok(_ParticipaService.Add(baseParticipa));
     }

@@ -15,6 +15,8 @@ import { EventosFinalizadosComponent } from './components/eventos-finalizados/ev
 import { InterceptorService } from './services/interceptor.service';
 import { EventoService } from './services/evento.service';
 import { tokenHelp } from './helper/tokenHelp';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { tokenHelp } from './helper/tokenHelp';
     HomeComponentComponent,
     LoginComponent,
     EventosFinalizadosComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { tokenHelp } from './helper/tokenHelp';
     ReactiveFormsModule,
     HttpClientModule,
     NgChartsModule,
+    NgbModule,
   ],
   providers: [
     BookService,
