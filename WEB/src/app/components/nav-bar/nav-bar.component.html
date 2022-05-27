@@ -1,25 +1,55 @@
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <!--Logo de Event Master-->
-      </a>
-
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="" class="nav-link px-2  text-white">Inicio</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Disponibles</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Participando</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Finalizados</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Registrar nuevo evento</a></li>
+<nav class="navbar navbar-expand-lg p-3 bg-dark text-white">
+  <div class="container-fluid">
+    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon navbar-dark"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <img src="assets/EventMaster.svg" alt="" style="width: 200px" />
+      <ul class="navbar-nav me-auto mb-2 justify-content-center">
+        <li class="nav-item">
+          <a href="" class="nav-link px-3 text-white"><button class="btn btn-outline-light me-2"
+              [ngClass]="{ active: pagActual == 1 }">
+              Inicio
+            </button></a>
+        </li>
+        <li class="nav-item">
+          <a href="Disponibles" class="nav-link px-3 text-white"><button class="btn btn-outline-light me-2"
+              [ngClass]="{ active: pagActual == 2 }">Disponibles</button></a>
+        </li>
+        <li class="nav-item">
+          <a href="Participando" class="nav-link px-3 text-white">
+            <button class="btn btn-outline-light me-2" [ngClass]="{ active: pagActual == 3 }">
+              Participando
+            </button></a>
+        </li>
+        <li class="nav-item">
+          <a href="eventosFinalizados" class="nav-link px-3 text-white">
+            <button class="btn btn-outline-light me-2" [ngClass]="{ active: pagActual == 4 }">
+              Finalizados
+            </button></a>
+        </li>
+        <li class="nav-item">
+          <a href="EventoNuevo" class="nav-link px-3 text-white">
+            <button class="btn btn-outline-light me-2" [ngClass]="{ active: pagActual == 5 }">Registrar nuevo
+              evento</button></a>
+        </li>
       </ul>
 
       <div class="text-end">
-        <button *ngIf="!existeToken" type="button" class="btn btn-outline-light me-2" routerLink="login">Iniciar
-          sesión</button>
-        <button *ngIf="!existeToken" type="button" class="btn btn-outline-light me-2">Registrase</button>
-        <button *ngIf="existeToken" type="button" class="btn btn-warning" (click)="cerrarSesion()">Cerrar
-          sesión</button>
+        <button *ngIf="!existeToken" type="button" class="btn btn-outline-light me-2" routerLink="Login"
+          [ngClass]="{ active: pagActual == 6 }">
+          Iniciar sesión
+        </button>
+        <button *ngIf="!existeToken" type="button" class="btn btn-outline-light me-2" routerLink="Register"
+          [ngClass]="{ active: pagActual == 7 }">
+          Registrarse
+        </button>
+        <button *ngIf="existeToken" type="button" class="btn btn-primary" (click)="cerrarSesion()">
+          Cerrar sesión
+        </button>
       </div>
     </div>
   </div>
-</header>
+</nav>

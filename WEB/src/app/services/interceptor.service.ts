@@ -39,7 +39,7 @@ export class InterceptorService implements HttpInterceptor {
           return throwError('Servicio no disponible');
         }
 
-        const error = err.message || err.statusText;
+        const error = err.error || err.statusText;
         return throwError(error);
       })
     );

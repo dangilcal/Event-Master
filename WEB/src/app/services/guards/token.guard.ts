@@ -25,7 +25,7 @@ export class TokenGuard implements CanActivate {
     | UrlTree {
     if (this._token.getDecodedAccessToken() == null) {
       //Te envia al login
-      return this.router.navigate(['login']).then(() => false);
+      return this.router.navigate(['Login']).then(() => false);
     }
 
     return true;

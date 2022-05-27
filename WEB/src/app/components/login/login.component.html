@@ -1,20 +1,9 @@
 <div class="login">
   <form class="custom-form" method="post" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
     <h1>Login</h1>
-    <input
-      type="Usuario"
-      name="Usuairo"
-      placeholder="Usuario"
-      required="required"
-      formControlName="User"
-    />
-    <input
-      type="password"
-      name="password"
-      placeholder="Password"
-      required="required"
-      formControlName="Pass"
-    />
+    <input type="Usuario" name="Usuairo" placeholder="Usuario" required="required" formControlName="User" />
+    <input type="password" name="password" placeholder="Password" required="required" formControlName="Pass" />
+    <p *ngIf="mostrarError">{{textoError}}</p>
     <button type="submit">Log in</button>
   </form>
 </div>

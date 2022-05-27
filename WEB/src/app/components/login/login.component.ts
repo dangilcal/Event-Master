@@ -21,9 +21,14 @@ export class LoginComponent implements OnInit {
     private cookie: tokenHelp
   ) {
     this.login = null;
+    this.textoError = null;
+    this.mostrarError = false;
   }
 
   ngOnInit(): void {}
+
+  textoError: string | null;
+  mostrarError: boolean;
 
   loginForm = this.fb.group({
     User: ['', Validators.required],
@@ -43,10 +48,12 @@ export class LoginComponent implements OnInit {
           const token = res.body.response;
           this.cookie.setCookie(token);
         }
+        window.location.reload();
         this.router.navigateByUrl('');
       },
       (error) => {
-        console.log(error);
+        this.textoError = error;
+        this.mostrarError = true;
       }
     );
   }

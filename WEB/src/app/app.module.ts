@@ -17,6 +17,11 @@ import { EventoService } from './services/evento.service';
 import { tokenHelp } from './helper/tokenHelp';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventosDisponiblesComponent } from './components/eventos-disponibles/eventos-disponibles.component';
+import { EventosParticipandoComponent } from './components/eventos-participando/eventos-participando.component';
+import { EventoNuevoComponent } from './components/evento-nuevo/evento-nuevo.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { comunicadorEntreComponentes } from './helper/comunicadorEntreComponentes';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     EventosFinalizadosComponent,
     NavBarComponent,
+    EventosDisponiblesComponent,
+    EventosParticipandoComponent,
+    EventoNuevoComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginService,
     EventoService,
     tokenHelp,
+    comunicadorEntreComponentes,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
