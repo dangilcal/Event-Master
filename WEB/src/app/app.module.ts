@@ -22,6 +22,7 @@ import { EventosParticipandoComponent } from './components/eventos-participando/
 import { EventoNuevoComponent } from './components/evento-nuevo/evento-nuevo.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { comunicadorEntreComponentes } from './helper/comunicadorEntreComponentes';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { comunicadorEntreComponentes } from './helper/comunicadorEntreComponente
     EventosParticipandoComponent,
     EventoNuevoComponent,
     RegistroComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

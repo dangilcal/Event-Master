@@ -1,0 +1,9 @@
+.icon{
+  width: 50px;
+  height: 50px;
+}
+
+.centerIcon div{
+  float: none;
+  display: inline-block;
+}
