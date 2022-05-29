@@ -1,1 +1,58 @@
-<p>registro works!</p>
+<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 border-bottom-0">
+        <h2 class="fw-bold mb-0">Register</h2>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="" (ngSubmit)="onSubmit()" method="post" [formGroup]="RegisterForm">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="Nombre" formControlName="Nombre"
+              [class.is-invalid]="(RegisterForm.get('Nombre')?.invalid && RegisterForm.get('Nombre')?.touched)">
+
+            <label for="Nombre">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="Apellidos" formControlName="Apellidos"
+              [class.is-invalid]="(RegisterForm.get('Apellidos')?.invalid && RegisterForm.get('Apellidos')?.touched)">
+
+            <label for="Apellidos">Apellidos</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="Usuario" formControlName="Usuario"
+              [class.is-invalid]="(RegisterForm.get('Usuario')?.invalid && RegisterForm.get('Usuario')?.touched)">
+
+            <label for="Usuario">Usuario</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="DNI" formControlName="DNI"
+              [class.is-invalid]="(RegisterForm.get('DNI')?.invalid && RegisterForm.get('DNI')?.touched)">
+            <label for="DNI">DNI</label>
+            <div *ngIf="onSubmit && f" class="invalid-feedback">
+              <div *ngIf="f">Necesitas Un DNI valido</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="Email" formControlName="Email"
+              [class.is-invalid]="(RegisterForm.get('Email')?.invalid && RegisterForm.get('Email')?.touched)">
+            <label for="Email">Email</label>
+            <div *ngIf="onSubmit && f" class="invalid-feedback">
+              <div *ngIf="f">Necesitas un Email Valido</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="Password" formControlName="Pass"
+              [class.is-invalid]="(RegisterForm.get('Pass')?.invalid && RegisterForm.get('Pass')?.touched)">
+            <label for="Password">Password</label>
+            <div *ngIf="onSubmit && f" class="invalid-feedback">
+              <div *ngIf="f">Mínimo 6 caracteres</div>
+            </div>
+          </div>
+          <button [disabled]="RegisterForm.invalid" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary buttonRegister"
+            type="submit">REGISTER</button>
+          <p class="bg-warning text-center" *ngIf="mostrarError">No puedes crear a ese Usuario</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

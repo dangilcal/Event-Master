@@ -15,14 +15,15 @@
               formControlName="Pass">
             <label for="Password">Password</label>
           </div>
-          <p *ngIf="mostrarError">{{textoError}}</p>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary buttonLogin" type="submit">LOG IN</button>
+          <p *ngIf="mostrarError" class="bg-warning text-center">{{textoError}}</p>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary buttonLogin" type="submit"
+            [disabled]="loginForm.invalid">LOG IN</button>
           <small class="text-muted">Si no tienes cuenta puedes registrarte <a href="Register"
               class="fw-bold text-decoration-underline">AQUÍ</a></small>
           <hr class="my-4">
-          <h5 class=" fw-bold mb-3">
-            También puede registrarse con una página de terceros (Actualización futura)
-          </h5>
+          <h6 class=" fw-bold mb-3">
+            También puede registrarse con páginas de terceros (Actualización futura)
+          </h6>
           <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3 disabled" type="submit">
             Regístrese con Twitter
           </button>
