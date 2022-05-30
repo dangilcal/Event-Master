@@ -25,7 +25,7 @@ const routes: Routes = [
     canActivate: [TokenGuard],
   },
   { path: 'Register', component: RegistroComponent, canActivate: [LoginGuard] },
-  { path: 'Evento/:id', component: EventoComponent },
+  { path: 'Evento/:id', component: EventoComponent, canActivate: [TokenGuard] },
   {
     path: 'EventoNuevo',
     component: EventoNuevoComponent,

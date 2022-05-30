@@ -9,16 +9,18 @@ public class ParticipasController : ControllerBase
 {
     private readonly ILogger<ParticipasController> _logger;
     private readonly IParticipaService _ParticipaService;
+    private readonly IEventoService _EventoService;
 
     /// <summary>
     /// It creates a ParticipaController
     /// </summary>
     /// <param name="logger">used for logging</param>
     /// <param name="ParticipaService">used for dealing with the Participa data</param>
-    public ParticipasController(ILogger<ParticipasController> logger, IParticipaService ParticipaService)
+    public ParticipasController(ILogger<ParticipasController> logger, IParticipaService ParticipaService, IEventoService EventoService)
     {
         _logger = logger;
         _ParticipaService = ParticipaService;
+        _EventoService = EventoService;
     }
 
     /// <summary>
@@ -34,7 +36,17 @@ public class ParticipasController : ControllerBase
 
         baseParticipa.IdUsuario = int.Parse(HttpContext.Request.Headers["X-Login"]);
 
-        return Ok(_ParticipaService.Add(baseParticipa));
+        if (!_EventoService.isHueco(baseParticipa.IdEvento))
+        {
+            throw new Exception("Este evento ya esta lleno");
+        }
+
+        baseParticipa.CreaOParticipa = false;
+        BaseParticipaDTO p = _ParticipaService.Add(baseParticipa);
+
+        _EventoService.ModifyEvent(baseParticipa.IdEvento);
+
+        return Ok(p);
     }
 
 

@@ -14,5 +14,9 @@ public interface IEventoService
 
     public int GetUltimaId();
 
+    public Boolean isHueco(int IdEvento);
+
+    public EventoDTO ModifyEvent(int IdEvento);
+
 
 }
