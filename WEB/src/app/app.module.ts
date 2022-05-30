@@ -24,6 +24,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { comunicadorEntreComponentes } from './helper/comunicadorEntreComponentes';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterService } from './services/register.service';
+import { HomeMainSectionComponent } from './components/home-main-section/home-main-section.component';
+import { HomePresentacionComponent } from './components/home-presentacion/home-presentacion.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { RegisterService } from './services/register.service';
     EventoNuevoComponent,
     RegistroComponent,
     FooterComponent,
+    HomeMainSectionComponent,
+    HomePresentacionComponent,
   ],
   imports: [
     BrowserModule,
