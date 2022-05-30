@@ -60,7 +60,7 @@ public class ParticipaEventosService : IParticipaEventosService
         return (from Eventos in _context.Eventos
                 join Participa in _context.Participas
                 on Eventos.Id equals Participa.IdEvento
-                where Eventos.FechaFin > d && !con.Contains(Participa.IdEvento)
+                where Eventos.FechaFin > d && !con.Contains(Participa.IdEvento) && Eventos.AforoMax > Eventos.NInscripciones
                 select new EventoDTO
                 {
                     Id = Eventos.Id,

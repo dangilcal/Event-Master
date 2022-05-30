@@ -26,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterService } from './services/register.service';
 import { HomeMainSectionComponent } from './components/home-main-section/home-main-section.component';
 import { HomePresentacionComponent } from './components/home-presentacion/home-presentacion.component';
+import { EventoComponent } from './components/evento/evento.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HomePresentacionComponent } from './components/home-presentacion/home-p
     FooterComponent,
     HomeMainSectionComponent,
     HomePresentacionComponent,
+    EventoComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { HomeComponentComponent } from 'src/app/pages/home/home-component/home-c
 import { LoginGuard } from 'src/app/services/guards/login.guard';
 import { TokenGuard } from 'src/app/services/guards/token.guard';
 import { EventoNuevoComponent } from '../evento-nuevo/evento-nuevo.component';
+import { EventoComponent } from '../evento/evento.component';
 import { EventosDisponiblesComponent } from '../eventos-disponibles/eventos-disponibles.component';
 import { EventosFinalizadosComponent } from '../eventos-finalizados/eventos-finalizados.component';
 import { EventosParticipandoComponent } from '../eventos-participando/eventos-participando.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     canActivate: [TokenGuard],
   },
   { path: 'Register', component: RegistroComponent, canActivate: [LoginGuard] },
+  { path: 'Evento/:id', component: EventoComponent },
   {
     path: 'EventoNuevo',
     component: EventoNuevoComponent,

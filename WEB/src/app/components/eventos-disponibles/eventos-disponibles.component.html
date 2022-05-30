@@ -1,1 +1,18 @@
-<p>eventos-disponibles works!</p>
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  <div class="col p-5" *ngFor="let event of evento">
+    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg"
+      style="background: url('{{event.imagen}}') 50% 50%; background-repeat: no-repeat ;">
+      <a href="Evento/{{event.id}}" class="text-decoration-none">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{event.nombre}}</h2>
+          <ul class="d-flex list-unstyled mt-auto">
+            <li class="d-flex align-items-center me-3">
+              <small>{{event.categoria}}</small>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<h1 *ngIf="isCero">No hay ningun evento disponible</h1>
