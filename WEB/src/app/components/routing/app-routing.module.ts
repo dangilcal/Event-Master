@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: 'EventoNuevo',
     component: EventoNuevoComponent,
-    // canActivate: [TokenGuard],
+    canActivate: [TokenGuard],
   },
   {
     path: 'eventosFinalizados',
@@ -42,4 +42,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

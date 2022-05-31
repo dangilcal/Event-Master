@@ -6,7 +6,7 @@ import { Evento } from '../models/evento.model';
 
 @Injectable()
 export class EventoService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getEventoData(): Observable<Evento[]> {
     return this.http.get<Evento[]>(environment.API_URL + 'eventos/finalizados');
@@ -34,8 +34,11 @@ export class EventoService {
     bodyData.fechaInicio = body.fechaInicio;
     bodyData.fechaFin = body.fechaFin;
     bodyData.descripcion = body.descripcion;
-    bodyData.imagen = "assets/imgCategoria/" + bodyData + Math.floor((Math.random() * (2 - 1 + 1)) + 1) + ".svg";
-
+    bodyData.imagen =
+      '/assets/imgCategoria/' +
+      bodyData.categoria +
+      Math.floor(Math.random() * (2 - 1 + 1) + 1) +
+      '.svg';
     let result = new Evento();
     this.http.post<Evento>(environment.API_URL + 'Eventos', bodyData).subscribe(
       (response) => {
