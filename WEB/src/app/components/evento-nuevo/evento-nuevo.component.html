@@ -1,1 +1,89 @@
-<p>evento-nuevo works!</p>
+<div class="modal modal-signin position-static d-block bg-secondary py-5"
+    tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-5 shadow">
+            <div class="modal-header p-5 border-bottom-0">
+                <h2 class="fw-bold mb-0">Registrar nuevo evento</h2>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form class="" (ngSubmit)="onSubmit()" method="post"
+                    [formGroup]="RegisterForm">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3"
+                            id="Nombre" formControlName="Nombre"
+                            [class.is-invalid]="(RegisterForm.get('Nombre')?.invalid
+                            && RegisterForm.get('Nombre')?.touched)">
+
+                        <label for="Nombre">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control rounded-3"
+                            id="nInscripciones" formControlName="nInscripciones"
+                            [class.is-invalid]="(RegisterForm.get('nInscripciones')?.invalid
+                            && RegisterForm.get('nInscripciones')?.touched)">
+                        <label for="nInscripciones">Numero de inscripciones</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control rounded-3"
+                            id="AforoMax" formControlName="AforoMax"
+                            [class.is-invalid]="(RegisterForm.get('AforoMax')?.invalid
+                            && RegisterForm.get('AforoMax')?.touched)">
+                        <label for="Usuario">Aforo maximo</label>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-control rounded-3"
+                            formControlName="Categoria"
+                            [class.is-invalid]="(RegisterForm.get('Categoria')?.invalid
+                            && RegisterForm.get('Categoria')?.touched)"
+                            id="Categoria">
+                            <option selected="" disabled="" value="">Elige la
+                                categoria</option>
+                            <option>Deporte</option>
+                            <option>Social</option>
+                            <option>Ocio</option>
+                            <option>Cultural</option>
+                            <option>Gastronomico</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3"
+                            id="Direccion" formControlName="Direccion"
+                            [class.is-invalid]="(RegisterForm.get('Direccion')?.invalid
+                            && RegisterForm.get('Direccion')?.touched)">
+                        <label for="Direccion">Dirección</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="datetime-local" class="form-control
+                            rounded-3"
+                            id="fechaInicio" formControlName="fechaInicio"
+                            [class.is-invalid]="(RegisterForm.get('fechaInicio')?.invalid
+                            && RegisterForm.get('fechaInicio')?.touched)">
+                        <label for="fechaInicio">Fecha del inicio del evento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="datetime-local" class="form-control
+                            rounded-3"
+                            id="fechaFin" formControlName="fechaFin"
+                            [class.is-invalid]="(RegisterForm.get('fechaFin')?.invalid
+                            && RegisterForm.get('fechaFin')?.touched)">
+                        <label for="fechaFin">Fecha del final del evento</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descripcion" class="">Descripción</label>
+                        <textarea id="descripcion" formControlName="descripcion"
+                            class="form-control" style="height:166px;"
+                            [class.is-invalid]="(RegisterForm.get('descripcion')?.invalid
+                            && RegisterForm.get('descripcion')?.touched)"></textarea>
+                    </div>
+
+                    <button [disabled]="RegisterForm.invalid" class="w-100 mb-2
+                        btn btn-lg rounded-3 btn-primary buttonRegister"
+                        type="submit">REGISTER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

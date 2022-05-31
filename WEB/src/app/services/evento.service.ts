@@ -6,7 +6,7 @@ import { Evento } from '../models/evento.model';
 
 @Injectable()
 export class EventoService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getEventoData(): Observable<Evento[]> {
     return this.http.get<Evento[]>(environment.API_URL + 'eventos/finalizados');
@@ -24,23 +24,28 @@ export class EventoService {
     );
   }
 
-  // postEventoData(body: any): Evento {
-  //   let bodyData = new Evento();
-  //   bodyData.isbn = body.EventoISBN;
-  //   bodyData.name = body.EventoName;
-  //   bodyData.pages = body.EventoPages;
-  //   bodyData.publishDate = new Date();
+  postEventoData(body: any): Evento {
+    let bodyData = new Evento();
+    bodyData.nombre = body.Nombre;
+    bodyData.nInscripciones = body.nInscripciones;
+    bodyData.aforoMax = body.AforoMax;
+    bodyData.categoria = body.Categoria;
+    bodyData.direccion = body.Direccion;
+    bodyData.fechaInicio = body.fechaInicio;
+    bodyData.fechaFin = body.fechaFin;
+    bodyData.descripcion = body.descripcion;
+    bodyData.imagen = "assets/imgCategoria/" + bodyData + Math.floor((Math.random() * (2 - 1 + 1)) + 1) + ".svg";
 
-  //   let result = new Evento();
-  //   this.http.post<Evento>(environment.API_URL + 'Eventos', bodyData).subscribe(
-  //     (response) => {
-  //       console.log('response received');
-  //       result = response;
-  //     },
-  //     (error) => {
-  //       console.error('error caught in component');
-  //     }
-  //   );
-  //   return result;
-  // }
+    let result = new Evento();
+    this.http.post<Evento>(environment.API_URL + 'Eventos', bodyData).subscribe(
+      (response) => {
+        console.log('response received');
+        result = response;
+      },
+      (error) => {
+        console.error('error caught in component');
+      }
+    );
+    return result;
+  }
 }
