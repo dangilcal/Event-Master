@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeComponentComponent } from './pages/home/home-component/home-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BookService } from './services/book.service';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './components/login/login.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -53,7 +52,6 @@ import { EventoComponent } from './components/evento/evento.component';
     NgbModule,
   ],
   providers: [
-    BookService,
     CookieService,
     LoginService,
     EventoService,

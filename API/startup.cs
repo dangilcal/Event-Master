@@ -55,7 +55,7 @@ public class Startup
 
         var mapperConfig = new MapperConfiguration(mc =>
         {
-            mc.AddProfile(new BookProfile());
+
             mc.AddProfile(new UserProfile());
             mc.AddProfile(new ParticipaProfile());
             mc.AddProfile(new EventoProfile());
@@ -64,7 +64,7 @@ public class Startup
         IMapper mapper = mapperConfig.CreateMapper();
         services.AddSingleton(mapper);
 
-        services.AddTransient<IBookService, BookService>();
+
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IParticipaService, ParticipaService>();
         services.AddTransient<IEventoService, EventoService>();
