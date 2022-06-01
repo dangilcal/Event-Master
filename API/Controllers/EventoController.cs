@@ -36,11 +36,11 @@ public class EventosController : ControllerBase
     [HttpGet("{Id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<EventoDTO> Get(int id)
+    public ActionResult<EventoDTO> Get(int Id)
     {
 
-        loginHelper.isUserId(HttpContext, id);
-        EventoDTO result = _EventoService.GetByID(id);
+        loginHelper.isUserId(HttpContext, Id);
+        EventoDTO result = _EventoService.GetByID(Id);
 
         if (result == null)
             return NotFound();
