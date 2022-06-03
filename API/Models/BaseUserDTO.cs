@@ -9,6 +9,6 @@ public class BaseUserDTO
     public string Apodo { get; set; }
     public string DNI { get; set; }
     public string Email { get; set; }
-    public string PasswordHast { get; set; }
+    public string PasswordHash { get; set; }
 
 }

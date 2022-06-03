@@ -1,10 +1,10 @@
 export class Login {
   apodo: string | null;
 
-  passwordHast: string | null;
+  passwordHash: string | null;
 
   constructor() {
     this.apodo = null;
-    this.passwordHast = null;
+    this.passwordHash = null;
   }
 }

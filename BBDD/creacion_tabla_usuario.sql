@@ -8,6 +8,6 @@ CREATE TABLE Usuario
     Apodo VARCHAR(60) UNIQUE NOT NULL,
     DNI VARCHAR(9) NOT NULL,
     Email VARCHAR(150) UNIQUE NOT NULL,
-    PasswordHast VARCHAR(max) NOT NULL,
+    PasswordHash VARCHAR(max) NOT NULL,
     CONSTRAINT Pk_Usuario PRIMARY KEY (Id)
 );

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.mostrarError = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   textoError: string | null;
   mostrarError: boolean;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     // Lo pasamos en formato JSON
     const login = {
       apodo: this.loginForm.value.User,
-      PasswordHast: this.loginForm.value.Pass,
+      PasswordHash: this.loginForm.value.Pass,
     };
 
     this._login.postLoginData<IResponse>(login).subscribe(

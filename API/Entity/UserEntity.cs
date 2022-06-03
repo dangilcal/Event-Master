@@ -14,7 +14,7 @@ public class UserEntity
     public string DNI { get; set; }
     [MaxLength(150)]
     public string Email { get; set; }
-    public string PasswordHast { get; set; }
+    public string PasswordHash { get; set; }
     public int Id { get; set; }
 
 }

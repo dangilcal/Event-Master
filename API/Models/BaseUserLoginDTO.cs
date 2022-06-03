@@ -6,6 +6,6 @@ public class BaseUserLoginDTO
 
 
     public string Apodo { get; set; }
-    public string PasswordHast { get; set; }
+    public string PasswordHash { get; set; }
 
 }
