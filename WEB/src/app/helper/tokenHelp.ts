@@ -5,10 +5,10 @@ import jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class tokenHelp {
-  constructor(private cookie: CookieService) {}
+  constructor(private cookie: CookieService) { }
 
   public setCookie(token: string) {
-    this.cookie.set('X-Token', token);
+    this.cookie.set('X-Token', token, 0, "/");
   }
 
   public getCookie() {
@@ -16,7 +16,7 @@ export class tokenHelp {
   }
 
   public closeToken() {
-    this.cookie.delete('X-Token');
+    this.cookie.delete('X-Token', "/");
   }
 
   public getHeaders(): HttpHeaders {

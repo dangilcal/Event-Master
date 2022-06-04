@@ -39,7 +39,6 @@ public class EventosController : ControllerBase
     public ActionResult<EventoDTO> Get(int Id)
     {
 
-        loginHelper.isUserId(HttpContext, Id);
         EventoDTO result = _EventoService.GetByID(Id);
 
         if (result == null)

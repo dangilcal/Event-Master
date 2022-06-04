@@ -36,10 +36,11 @@ const routes: Routes = [
     component: EventosFinalizadosComponent,
     canActivate: [TokenGuard],
   },
+  { path: '**', component: HomeComponentComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -26,6 +26,7 @@ import { RegisterService } from './services/register.service';
 import { HomeMainSectionComponent } from './components/home-main-section/home-main-section.component';
 import { HomePresentacionComponent } from './components/home-presentacion/home-presentacion.component';
 import { EventoComponent } from './components/evento/evento.component';
+import { ParticipaService } from './services/participa.service';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { EventoComponent } from './components/evento/evento.component';
     tokenHelp,
     comunicadorEntreComponentes,
     RegisterService,
+    ParticipaService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
@@ -66,4 +68,4 @@ import { EventoComponent } from './components/evento/evento.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

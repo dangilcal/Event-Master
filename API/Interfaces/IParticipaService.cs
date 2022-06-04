@@ -8,4 +8,6 @@ public interface IParticipaService
 {
     public ParticipaDTO Add(BaseParticipaDTO guid);
 
+    public ParticipaDTO getIsParticipo(int idUser, int idEvento);
+
 }

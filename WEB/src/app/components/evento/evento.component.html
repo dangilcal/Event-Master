@@ -1,1 +1,45 @@
-<p>evento works!</p>
+<div class="container my-5 p-5">
+  <div class="row p-3 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+    style="background-color: #57b3dd;">
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+      <table class="table table-striped">
+
+        <h1 class="display-4 fw-bold lh-1">{{evento?.nombre}}</h1>
+        <tbody>
+          <tr>
+            <td>Numero de Personas Inscritas</td>
+            <td>{{evento?.nInscripciones}}</td>
+          </tr>
+          <tr>
+            <td>Numero de Aforo máximo</td>
+            <td>{{evento?.aforoMax}}</td>
+          </tr>
+          <tr>
+            <td>Categoria</td>
+            <td>{{evento?.categoria}}</td>
+          </tr>
+          <tr>
+            <td>Direccion</td>
+            <td>{{evento?.direccion}}</td>
+          </tr>
+          <tr>
+            <td>Icinia el evento</td>
+            <td>{{eventoFechaInicio}}</td>
+          </tr>
+          <tr>
+            <td>Finaliza el evento</td>
+            <td>{{eventoFechaFinal}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">Descripcion --> {{evento?.descripcion}}</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3" *ngIf="isParticipa">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+          (click)="enviarParticipacion()">Inscribirme al evento</button>
+      </div>
+    </div>
+    <div class="col-lg-4 offset-lg-0 p-0 overflow-hidden shadow-lg" style="text-align: center;">
+      <img class="rounded-lg-3 m-5" src="{{evento?.imagen}}" alt="" width="250">
+    </div>
+  </div>
+</div>

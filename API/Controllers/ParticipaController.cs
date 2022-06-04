@@ -49,6 +49,25 @@ public class ParticipasController : ControllerBase
         return Ok(p);
     }
 
+    /// <summary>
+    /// Get si el usuaio participa en el evento
+    /// </summary>
+    /// <param name="baseParticipa">the created Participa <see cref="BaseParticipaDTO"/></param>
+    /// <returns>Returns the created Participa <see cref="ParticipaDTO"/></returns>
+    [Authorize]
+    [HttpGet("{get}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParticipaDTO))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<ParticipaDTO> Get(int get)
+    {
+
+        int idUser = int.Parse(HttpContext.Request.Headers["X-Login"].ToString());
+
+
+        return Ok(_ParticipaService.getIsParticipo(idUser, get));
+
+    }
+
 
 
 

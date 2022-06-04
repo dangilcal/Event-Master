@@ -20,4 +20,11 @@ public class ParticipaService : IParticipaService
         return _mapper.Map<ParticipaDTO>(entityAdded);
     }
 
+    public ParticipaDTO getIsParticipo(int idUser, int idEvento)
+    {
+
+        return _mapper.Map<ParticipaDTO>(_context.Participas.FirstOrDefault(x => (x.IdUsuario == idUser) && (x.IdEvento == idEvento)));
+
+    }
+
 }

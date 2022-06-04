@@ -24,6 +24,10 @@ export class EventoService {
     );
   }
 
+  getEventoForId(id: number): Observable<Evento> {
+    return this.http.get<Evento>(environment.API_URL + 'eventos/' + id);
+  }
+
   postEventoData(body: any): Evento {
     let bodyData = new Evento();
     bodyData.nombre = body.Nombre;
