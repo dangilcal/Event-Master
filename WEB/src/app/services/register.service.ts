@@ -15,7 +15,7 @@ export class RegisterService {
     bodyData.apodo = body.Usuario;
     bodyData.dni = body.DNI;
     bodyData.email = body.Email;
-    bodyData.passwordHash = body.Pass;
+    bodyData.passwordHast = body.Pass;
 
     let result = new Register();
     this.http.post<Register>(environment.API_URL + 'Users', bodyData).subscribe(
@@ -28,6 +28,7 @@ export class RegisterService {
       },
       (error) => {
         console.error('error caught in component');
+        alert("No puedes crear a ese Usuario");
       }
     );
     return result;

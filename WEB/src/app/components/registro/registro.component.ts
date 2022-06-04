@@ -19,13 +19,11 @@ export class RegistroComponent implements OnInit {
   ) {
     this.reister = null;
     this.textoError = null;
-    this.mostrarError = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   textoError: string | null;
-  mostrarError: boolean;
 
   RegisterForm = this.fb.group({
     Nombre: ['', Validators.required],
@@ -44,11 +42,7 @@ export class RegistroComponent implements OnInit {
   });
 
   onSubmit() {
-    if (
-      this._register.postRegisterUser(this.RegisterForm.value).apodo == null
-    ) {
-      this.mostrarError = true;
-    }
+    this._register.postRegisterUser(this.RegisterForm.value)
   }
 
   get f() {

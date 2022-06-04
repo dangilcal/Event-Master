@@ -32,7 +32,7 @@ public class IdentidadController : ControllerBase
         int userId = 0;
         try
         {
-            hash = (_identidad.GetByApodo(login.Apodo)).PasswordHash;
+            hash = (_identidad.GetByApodo(login.Apodo)).PasswordHast;
             userId = (_identidad.GetByApodo(login.Apodo)).Id;
         }
         catch
@@ -44,10 +44,10 @@ public class IdentidadController : ControllerBase
         {
 
 
-            login.PasswordHash = sha.sha256(login.PasswordHash);
+            login.PasswordHast = sha.sha256(login.PasswordHast);
 
             //Verifica el usuario y contraseña
-            if (login.PasswordHash != hash)
+            if (login.PasswordHast != hash)
             {
                 return BadRequest("Usuario/Contraseña incorrectos");
             }

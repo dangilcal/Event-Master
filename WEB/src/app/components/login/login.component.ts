@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     // Lo pasamos en formato JSON
     const login = {
       apodo: this.loginForm.value.User,
-      PasswordHash: this.loginForm.value.Pass,
+      PasswordHast: this.loginForm.value.Pass,
     };
 
     this._login.postLoginData<IResponse>(login).subscribe(

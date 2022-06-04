@@ -23,12 +23,19 @@
                             && RegisterForm.get('nInscripciones')?.touched)">
                         <label for="nInscripciones">Numero de inscripciones</label>
                     </div>
+                    <div *ngIf="onSubmit && f" class="invalid-feedback">
+                        <div *ngIf="f">Mínimo una persona tiene que estar
+                            inscrita</div>
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control rounded-3"
                             id="AforoMax" formControlName="AforoMax"
                             [class.is-invalid]="(RegisterForm.get('AforoMax')?.invalid
                             && RegisterForm.get('AforoMax')?.touched)">
                         <label for="Usuario">Aforo maximo</label>
+                    </div>
+                    <div *ngIf="onSubmit && f" class="invalid-feedback">
+                        <div *ngIf="f">Mínimo dos persona de aforo máximo</div>
                     </div>
                     <div class="mb-3">
                         <select class="form-control rounded-3"
@@ -59,7 +66,8 @@
                             rounded-3"
                             id="fechaInicio" formControlName="fechaInicio"
                             [class.is-invalid]="(RegisterForm.get('fechaInicio')?.invalid
-                            && RegisterForm.get('fechaInicio')?.touched)">
+                            && RegisterForm.get('fechaInicio')?.touched)"
+                            min="{{min}}">
                         <label for="fechaInicio">Fecha del inicio del evento</label>
                     </div>
                     <div class="form-floating mb-3">
@@ -67,7 +75,8 @@
                             rounded-3"
                             id="fechaFin" formControlName="fechaFin"
                             [class.is-invalid]="(RegisterForm.get('fechaFin')?.invalid
-                            && RegisterForm.get('fechaFin')?.touched)">
+                            && RegisterForm.get('fechaFin')?.touched)"
+                            min="{{min}}">
                         <label for="fechaFin">Fecha del final del evento</label>
                     </div>
 

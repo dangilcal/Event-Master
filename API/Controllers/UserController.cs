@@ -53,7 +53,7 @@ public class UsersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDTO))]
     public ActionResult<UserDTO> Post([FromBody] BaseUserDTO baseUser)
     {
-        baseUser.PasswordHash = sha.sha256(baseUser.PasswordHash);
+        baseUser.PasswordHast = sha.sha256(baseUser.PasswordHast);
 
         return Ok(_UserService.Add(baseUser));
     }
