@@ -6,7 +6,7 @@ import { Evento } from '../models/evento.model';
 
 @Injectable()
 export class EventoService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getEventoData(): Observable<Evento[]> {
     return this.http.get<Evento[]>(environment.API_URL + 'eventos/finalizados');
@@ -44,9 +44,13 @@ export class EventoService {
       (response) => {
         console.log('response received');
         result = response;
+        setTimeout(function () {
+          window.location.href = '';
+        }, 1000);
       },
       (error) => {
         console.error('error caught in component');
+        alert("No puedes crear a ese Evento");
       }
     );
     return result;
