@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using WebApi.Helpers;
 using WebApplication1.Filters;
+using Microsoft.OpenApi.Models;
 
 public class Startup
 {
@@ -19,6 +20,7 @@ public class Startup
             new EventMasterContext(Configuration.GetConnectionString("DefaultConnection")));
 
         services.AddEndpointsApiExplorer();
+
         services.AddSwaggerGen(options =>
         {
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -26,7 +28,7 @@ public class Startup
             options.IncludeXmlComments(xmlPath);
             options.OperationFilter<ParameterHeader>();
 
-            options.AddSecurityDefinition("bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            options.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
             {
                 Name = "Authorization",
                 Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
@@ -35,14 +37,14 @@ public class Startup
                 In = Microsoft.OpenApi.Models.ParameterLocation.Header,
                 Description = "JWT Authorization header using the Bearer scheme."
             });
-            options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
-                          new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+                          new OpenApiSecurityScheme
                             {
-                                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                                Reference = new OpenApiReference
                                 {
-                                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                                    Type = ReferenceType.SecurityScheme,
                                     Id = "bearer"
                                 }
                             },

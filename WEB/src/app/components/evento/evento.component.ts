@@ -76,7 +76,7 @@ export class EventoComponent implements OnInit {
       pdfData.setTextColor('White');
       pdfData.text('Evento --> ' + this.evento?.nombre, 20, 20);
       pdfData.text('Id Entrada --> ' + this.evento?.nInscripciones, 20, 30);
-      pdfData.text('Categíra --> ' + this.evento?.categoria, 20, 40);
+      pdfData.text('Categoría --> ' + this.evento?.categoria, 20, 40);
       pdfData.text('Dirección --> ' + this.evento?.direccion, 20, 50);
       pdfData.text(
         'Fecha del inicio del evento  --> ' + this.eventoFechaInicio,
