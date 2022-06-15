@@ -1,5 +1,6 @@
 <div class="container my-5 p-5">
-  <div class="row p-3 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+  <div class="row p-3 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border
+    shadow-lg"
     style="background-color: #57b3dd;">
     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3" id="pdfDescargar">
       <h1 class="display-4 fw-bold lh-1">{{evento?.nombre}}</h1>
@@ -23,7 +24,7 @@
             <td>{{evento?.direccion}}</td>
           </tr>
           <tr>
-            <td>Icinia el evento</td>
+            <td>Inicia el evento</td>
             <td>{{eventoFechaInicio}}</td>
           </tr>
           <tr>
@@ -33,16 +34,21 @@
         </tbody>
       </table>
       <p class="lead">Descripcion --> <br>{{evento?.descripcion}}</p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3" *ngIf="isParticipa && !finalizado">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"
+        *ngIf="isParticipa && !finalizado">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2
+          fw-bold"
           (click)="enviarParticipacion()">Inscribirme al evento</button>
       </div>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3" *ngIf="!isParticipa && !finalizado">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" (click)="pdf()">Descargar
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"
+        *ngIf="!isParticipa && !finalizado">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2
+          fw-bold" (click)="pdf()">Descargar
           Entrada</button>
       </div>
     </div>
-    <div class="col-lg-4 offset-lg-0 p-0 overflow-hidden shadow-lg" style="text-align: center;">
+    <div class="col-lg-4 offset-lg-0 p-0 overflow-hidden shadow-lg"
+      style="text-align: center;">
       <img class="rounded-lg-3 m-5" src="{{evento?.imagen}}" alt="" width="250">
     </div>
   </div>
