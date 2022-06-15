@@ -1,5 +1,5 @@
 /// <summary>
-/// DTO of the User
+/// Modelo de usuario
 /// </summary>
 public class UserDTO : BaseUserDTO
 {

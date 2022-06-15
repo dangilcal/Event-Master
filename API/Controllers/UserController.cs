@@ -24,8 +24,8 @@ public class UsersController : ControllerBase
     /// <summary>
     /// Returnea un usuario por su apodo
     /// </summary>
-    /// <param name="Id">the id of the User</param>
-    /// <returns>Returns a User <see cref="UserDTO"/></returns>
+    /// <param name="Id">Id del usuario</param>
+    /// <returns>Devuelve un usuario <see cref="UserDTO"/></returns>
     [Authorize]
     [HttpGet("{apodo}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDTO))]
@@ -47,8 +47,8 @@ public class UsersController : ControllerBase
     /// <summary>
     /// Creacion de Usuario
     /// </summary>
-    /// <param name="baseUser">the created User <see cref="BaseUserDTO"/></param>
-    /// <returns>Returns the created User <see cref="UserDTO"/></returns>
+    /// <param name="baseUser">El crea un usario <see cref="BaseUserDTO"/></param>
+    /// <returns>Devuelve el usario creado <see cref="UserDTO"/></returns>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDTO))]
     public ActionResult<UserDTO> Post([FromBody] BaseUserDTO baseUser)

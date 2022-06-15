@@ -28,9 +28,9 @@ public class ParticipaEventosController : ControllerBase
     // Solo devuelve un registro con el precio más bajo, no uno por cada ParticipaEventosdor que suministra dicho producto -> TODO
 
     /// <summary>
-    /// Returns all the ParticipaEventos with just the info to show each product with its min price -> TODO 
+    /// Eventos en los que el usuario está partipando
     /// </summary>
-    /// <returns>Returns a list of <see cref="ParticipaEventosDTO"/></returns>
+    /// <returns>Devuelve de tipo ParticipaEventos <see cref="ParticipaEventosDTO"/></returns>
     [Route("participa")]
     [Authorize]
     [HttpGet]
@@ -44,10 +44,9 @@ public class ParticipaEventosController : ControllerBase
     // Usado para mostrar info de ambas tablas (producto y ParticipaEventosdor)
 
     /// <summary>
-    /// Returns all the ParticipaEventos by IdProducto
+    /// Eventos en los que el usuario no está partipando
     /// </summary>
-    /// <param name="IdProducto">the id of the producto</param>
-    /// <returns>Returns a list of <see cref="ParticipaEventosDTO"/></returns>
+    /// <returns>Devuelve de tipo ParticipaEventos <see cref="ParticipaEventosDTO"/></returns>
 
     [Route("noparticipa")]
     [Authorize]

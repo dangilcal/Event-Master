@@ -1,5 +1,5 @@
 /// <summary>
-/// Base DTO of the Participa Evento, used in creation
+/// Modelo base de Participa Evento, usado en la creación
 /// </summary>
 public class BaseParticipaEventoDTO
 {

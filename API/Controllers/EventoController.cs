@@ -14,7 +14,7 @@ public class EventosController : ControllerBase
 
 
     /// <summary>
-    /// It creates a EventoController
+    /// Gestiona los eventos
     /// </summary>
     /// <param name="logger">used for logging</param>
     /// <param name="EventoService">used for dealing with the Evento data</param>
@@ -28,10 +28,10 @@ public class EventosController : ControllerBase
 
 
     /// <summary>
-    /// It returns a Evento by id 
+    /// Devuelve el evento por la ID
     /// </summary>
-    /// <param name="Id">the id of the Evento</param>
-    /// <returns>Returns a Evento <see cref="EventoDTO"/></returns>
+    /// <param name="Id">Id del evento </param>
+    /// <returns>Devuelve el evento <see cref="EventoDTO"/></returns>
     [Authorize]
     [HttpGet("{Id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
@@ -49,10 +49,10 @@ public class EventosController : ControllerBase
     }
 
     /// <summary>
-    /// It creates a Evento
+    /// Creación de evento
     /// </summary>
-    /// <param name="baseEvento">the created Evento <see cref="BaseEventoDTO"/></param>
-    /// <returns>Returns the created Evento <see cref="EventoDTO"/></returns>
+    /// <param name="baseEvento">Evento creado <see cref="BaseEventoDTO"/></param>
+    /// <returns>Devuelve el evento creado <see cref="EventoDTO"/></returns>
     [Authorize]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoDTO))]
@@ -81,7 +81,7 @@ public class EventosController : ControllerBase
     /// <summary>
     /// Muestra todos los eventos finalizados
     /// </summary>
-    /// <returns>Returns a list of <see cref="EventoDTO"/></returns>
+    /// <returns>Devuelve todos los eventos finalizados <see cref="EventoDTO"/></returns>
     [Authorize]
     [HttpGet]
     [Route("finalizados")]
@@ -90,5 +90,4 @@ public class EventosController : ControllerBase
     {
         return Ok(_EventoService.GetEventosFinalizados());
     }
-
 }

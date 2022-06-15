@@ -24,6 +24,10 @@ public class IdentidadController : ControllerBase
     }
 
 
+    /// <summary>
+    /// Inicio de sesión
+    /// </summary>
+    /// <returns>Devuelve el token del usuario <see cref="EventoDTO"/></returns>
     [HttpPost]
     [Route("login")]
     public IActionResult Login(BaseUserLoginDTO login)
@@ -42,8 +46,6 @@ public class IdentidadController : ControllerBase
 
         try
         {
-
-
             login.PasswordHast = sha.sha256(login.PasswordHast);
 
             //Verifica el usuario y contraseña

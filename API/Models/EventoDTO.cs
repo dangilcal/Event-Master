@@ -1,5 +1,5 @@
 /// <summary>
-/// DTO of the Evento
+/// Modelo de Evento
 /// </summary>
 public class EventoDTO : BaseEventoDTO
 {

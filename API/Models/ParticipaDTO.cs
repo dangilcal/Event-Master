@@ -1,5 +1,5 @@
 /// <summary>
-/// DTO of the ParticipaEvento
+/// Modelo de ParticipaEvento
 /// </summary>
 public class ParticipaDTO : BaseParticipaDTO
 {

@@ -1,5 +1,5 @@
 /// <summary>
-/// Base DTO of the Evento, used in creation
+/// Modelo base de Evento, usado en la creación
 /// </summary>
 public class BaseEventoDTO
 {

@@ -1,5 +1,5 @@
 /// <summary>
-/// Base DTO of the User, used in creation
+/// Modelo base de usuario, se usa para crear usuarios
 /// </summary>
 public class BaseUserDTO
 {

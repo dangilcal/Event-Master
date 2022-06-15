@@ -24,10 +24,10 @@ public class ParticipasController : ControllerBase
     }
 
     /// <summary>
-    /// It creates a Participa
+    /// Participar en un evento
     /// </summary>
-    /// <param name="baseParticipa">the created Participa <see cref="BaseParticipaDTO"/></param>
-    /// <returns>Returns the created Participa <see cref="ParticipaDTO"/></returns>
+    /// <param name="baseParticipa">Participación <see cref="BaseParticipaDTO"/></param>
+    /// <returns>Devuelve el eveto <see cref="ParticipaDTO"/></returns>
     [Authorize]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParticipaDTO))]
@@ -50,10 +50,10 @@ public class ParticipasController : ControllerBase
     }
 
     /// <summary>
-    /// Get si el usuaio participa en el evento
+    /// Devuelve la participación por la id
     /// </summary>
-    /// <param name="baseParticipa">the created Participa <see cref="BaseParticipaDTO"/></param>
-    /// <returns>Returns the created Participa <see cref="ParticipaDTO"/></returns>
+    /// <param name="baseParticipa">EL crea Participa <see cref="BaseParticipaDTO"/></param>
+    /// <returns>Devuelve la participación <see cref="ParticipaDTO"/></returns>
     [Authorize]
     [HttpGet("{get}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParticipaDTO))]
