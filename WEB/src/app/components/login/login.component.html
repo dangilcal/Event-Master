@@ -1,38 +1,50 @@
-<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
+<div class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1" role="dialog">
+  <div class="modal-dialog py-5">
     <div class="modal-content rounded-5 shadow">
       <div class="modal-header p-5 border-bottom-0">
         <h2 class="fw-bold mb-0">Login</h2>
       </div>
       <div class="modal-body p-5 pt-0">
-        <form class="" (ngSubmit)="onSubmit()" method="post" [formGroup]="loginForm">
+        <form class="" (ngSubmit)="onSubmit()" method="post"
+          [formGroup]="loginForm">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-3" id="Usuario" placeholder="pepe" formControlName="User"
-              [class.is-invalid]="(loginForm.get('User')?.invalid && loginForm.get('User')?.touched)">
+            <input type="text" class="form-control rounded-3" id="Usuario"
+              placeholder="pepe" formControlName="User"
+              [class.is-invalid]="(loginForm.get('User')?.invalid &&
+              loginForm.get('User')?.touched)">
             <label for="Usuario">Usuario</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="Password" placeholder="Password"
+            <input type="password" class="form-control rounded-3" id="Password"
+              placeholder="Password"
               formControlName="Pass"
-              [class.is-invalid]="(loginForm.get('Pass')?.invalid && loginForm.get('Pass')?.touched)">
+              [class.is-invalid]="(loginForm.get('Pass')?.invalid &&
+              loginForm.get('Pass')?.touched)">
             <label for="Password">Password</label>
           </div>
           <p *ngIf="mostrarError" class="bg-warning text-center">{{textoError}}</p>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary buttonLogin" type="submit"
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary
+            buttonLogin" type="submit"
             [disabled]="loginForm.invalid">LOG IN</button>
-          <small class="text-muted">Si no tienes cuenta puedes registrarte <a href="Register"
+          <small class="text-muted">Si no tienes cuenta puedes registrarte <a
+              href="Register"
               class="fw-bold text-decoration-underline">AQUÍ</a></small>
           <hr class="my-4">
-          <h6 class=" fw-bold mb-3">
-            También puede registrarse con páginas de terceros (Actualización futura)
+          <h6 class="fw-bold mb-3">
+            También puede registrarse con páginas de terceros (Actualización
+            futura)
           </h6>
-          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3 disabled" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3
+            disabled" type="submit">
             Regístrese con Twitter
           </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3 disabled" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3
+            disabled" type="submit">
             Regístrese con Facebook
           </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3 disabled" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3
+            disabled" type="submit">
             Regístrese con Instagram
           </button>
         </form>
