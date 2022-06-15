@@ -95,8 +95,8 @@ public class Startup
             .AllowAnyMethod()
             .AllowAnyHeader());
 
-
-        app.UseHttpsRedirection();
+        //Eliman la redireccion a HTTPS
+        // app.UseHttpsRedirection();
         app.UseStaticFiles();
 
         app.UseRouting();
