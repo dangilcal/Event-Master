@@ -1,1 +1,6 @@
 # API
+
+Ejercución
+```
+dotnet run
+```
