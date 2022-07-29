@@ -501,3 +501,5 @@ baseline.json
 
 # Husky
 .husky/_
+
+*/build/
