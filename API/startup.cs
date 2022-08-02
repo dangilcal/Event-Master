@@ -80,6 +80,7 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
+            // Si quiero utilizar swagger en pre tengo que quitar las lineas de development
             app.UseSwagger();
             app.UseSwaggerUI();
 
